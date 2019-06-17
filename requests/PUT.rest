@@ -1,0 +1,9 @@
+PUT http://localhost:3003/api/blogs/5cfbe282244a591b8c9fb051
+Content-Type: application/json
+
+{
+    "title":  "blogi",
+    "author": "Paavo",
+    "url": "https://www.paavovayrynen.fi/category/blogi/",
+    "likes": 102
+}

@@ -1,0 +1,18 @@
+POST http://localhost:3003/api/blogs 
+Content-Type: application/json
+
+{
+"title"
+:
+"blogi",
+"author"
+:
+"Paavo",
+"url"
+:
+"https://www.paavovayrynen.fi/category/blogi/"
+,"likes"
+:
+99,
+    "userId":"5cfcfe88dfa9e910a044b2e4"
+  }

@@ -1,0 +1,10 @@
+POST http://localhost:3003/api/blogs
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InBlbmEiLCJpZCI6IjVjZmNmZTg4ZGZhOWU5MTBhMDQ0YjJlNCIsImlhdCI6MTU2MDM1MjM4NX0.AnWGv9BgsEVU6DPH02iYV9sAzbH7NVzqEO64KuHDa7w
+ 
+{
+"title" : "psde",
+"author" : "Jsfpa",
+"url" : "https://www.kasfsung.ru",
+"likes" : 105555 
+  } 
