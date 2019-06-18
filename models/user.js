@@ -11,75 +11,25 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: true
   },
-  behavior: [
+  favorites: { 
+    
+    events: [
+      {
+        id: String
+      }
+    ],
+    tags: [
+      {
+        name: String
+      }
+    ]
+  },
+  visits: [
     {
-      favoriteEvents: [
-        {
-          id: {
-            type: String 
-          }
-        }
-      ],
-      favoriteTags: [
-        {
-          name: {
-            type: String 
-          }
-        }
-      ],
-      visits: [
-        {
-          loginTime: {
-            type: Date 
-          },
-          logoutTime: {
-            type: Date 
-          },
-          queries: [
-            {
-              position: Number,
-              distance: Number,
-              tags: [
-                {
-                  name: String
-                }
-              ]
-            }
-          ],
-          addedFavorites: [
-            {
-              id: String,
-              time: Date
-            }
-          ],
-          removedFavorites: [
-            {
-              id: String,
-              time: Date
-            }
-          ],
-          addedTags: [
-            {
-              name: String,
-              time: Date
-            }
-          ],
-          removedTags: [
-            {
-              name: String,
-              time: Date
-            }
-          ],
-          textSearches : [
-            {
-              word: String,
-              time: Date
-            }
-          ] 
-        }
-      ]
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Visit'
     }
-  ]
+  ],
 })
 
 userSchema.plugin(uniqueValidator)
