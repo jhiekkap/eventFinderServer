@@ -38,8 +38,7 @@ eventsRouter.get('/allTags', (req, res) => {
             console.log("done!" + new Date())
             let tags = response.data.tags 
             if (tags) {
-                res.json(tags)
-                console.log(tags.length, 'TAGS ALLTOGETHER')
+                res.json(tags) 
             } else {
                 res.send("no events there")
             }
