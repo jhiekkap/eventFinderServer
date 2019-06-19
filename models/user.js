@@ -11,25 +11,7 @@ const userSchema = mongoose.Schema({
     type: String,
     unique: true
   },
-  favorites: { 
-    
-    events: [
-      {
-        id: String
-      }
-    ],
-    tags: [
-      {
-        name: String
-      }
-    ]
-  },
-  visits: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'Visit'
-    }
-  ],
+  favorites:   [] 
 })
 
 userSchema.plugin(uniqueValidator)

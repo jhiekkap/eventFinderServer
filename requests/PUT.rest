@@ -1,9 +1,25 @@
-PUT http://localhost:3003/api/blogs/5cfbe282244a591b8c9fb051
+PUT http://localhost:3001/api/users/5d09e7c6a06debc0a06b598b
 Content-Type: application/json
 
 {
-    "title":  "blogi",
-    "author": "Paavo",
-    "url": "https://www.paavovayrynen.fi/category/blogi/",
-    "likes": 102
+    "name":  "Jorma",
+    "username": "zzzz",
+    "favorites": {
+        "events": [
+        {
+            "id" : "popopop"
+            },
+        {
+             "id":"ioioioioi"}
+        ],
+        "tags":
+        [
+            {
+                "name":"lölölöö"
+                },
+            {
+                "name":"äöäöäöä"
+                }
+        ] 
+    } 
 }

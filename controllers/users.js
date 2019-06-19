@@ -4,14 +4,17 @@ const User = require('../models/user')
 
 usersRouter.get('/', async (request, response) => {
 
-  const users = await User.find({}).populate('blogs')
+  const users = await User.find({})
 
   response.json(users.map(u => u.toJSON()))
 })
 
+
+
+
 usersRouter.post('/', async (request, response, next) => {
  
-
+ 
   const body = request.body
 
   if (!body.username) {
@@ -33,8 +36,7 @@ usersRouter.post('/', async (request, response, next) => {
       username: body.username,
       name: body.name,
       passwordHash,
-      favorites: {},
-      visits: []
+      favorites: body.favorites
     })
 
     const savedUser = await user.save()
@@ -44,5 +46,46 @@ usersRouter.post('/', async (request, response, next) => {
     next(exception)
   }
 })
+
+
+usersRouter.put('/', async (request, response, next) => {
+
+  const body = request.body
+
+  
+  const oldUser = await User.findOne({ username: body.username })
+
+  console.log('OLD USER', oldUser)
+
+  /* const passwordCorrect = user === null
+    ? false
+    : await bcrypt.compare(body.password, user.passwordHash) */
+
+    let updatedUser = {
+      name: oldUser.name,
+      username: oldUser.username,
+      password: oldUser.passwordHash,
+      favorites: body.favorites,
+    }
+
+
+   
+  console.log('UPDATED USER:', updatedUser)
+
+  /* const decodedToken = jwt.verify(request.token, process.env.SECRET)
+  if (!request.token || !decodedToken.id) {
+      return response.status(401).json({ error: 'token missing or invalid' })
+  } */
+
+  //console.log('DECODED TOKEN', decodedToken)
+
+  try { 
+      const responseUser = await User.findByIdAndUpdate(oldUser.id, updatedUser, { new: true })
+      response.json(responseUser.toJSON())
+  } catch (exception) {
+      next(exception)
+  } 
+})
+
 
 module.exports = usersRouter
