@@ -1,6 +1,6 @@
-const eventsRouter = require('express').Router()
+const eventsRouter = require('../node_modules/express').Router()
 //const Event = require('../models/event')  
-const axios = require('axios'); 
+const axios = require('../node_modules/axios'); 
 
 
  

@@ -1,6 +1,6 @@
 const config = require('./utils/config')
-const express = require('express')
-const bodyParser = require('body-parser')
+const express = require('./node_modules/express')
+const bodyParser = require('./node_modules/body-parser')
 const app = express()
 const blogsRouter = require('./controllers/blogs')
 const eventsRouter = require('./controllers/events')
@@ -8,7 +8,7 @@ const usersRouter = require('./controllers/users')
 const loginRouter = require('./controllers/login')
 const middleware = require('./utils/middleware')
 const mongoose = require('mongoose')
-const cors = require('cors')
+const cors = require('./node_modules/cors/lib')
 
 
 
