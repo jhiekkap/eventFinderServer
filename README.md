@@ -1,2 +1,2 @@
 # eventFinderServer
-- server & MongoDB for eventFinder
+- Node.js server & MongoDB for eventFinder
